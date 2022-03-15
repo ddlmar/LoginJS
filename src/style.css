@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: 16px "roboto";
+}
+a {
+  text-decoration: none;
+}
+.mainContainer {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #2093ff, #9620ff);
+}
+.formContainer {
+  height: 400px;
+  width: 300px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px;
+}
+.loginTitle {
+  font-size: 36px;
+  color: #303030;
+  margin-bottom: 40px;
+}
+.inputArea {
+  background: #fdfdfd;
+  height: 40px;
+  width: 100%;
+  border: unset;
+  outline: none;
+}
+.inputSplit {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 16px;
+  background: #fdfdfd;
+  transition: 0.3s ease-in-out;
+}
+.inputSplit::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0;
+  margin-bottom: 16px;
+  background: linear-gradient(120deg, #2093ff, #9620ff);
+  transition: 0.5s ease-in-out;
+}
+.inputArea:focus + .inputSplit::after {
+  width: 100%;
+}
+.submitButton {
+  height: 40px;
+  width: 100%;
+  color: #fdfdfd;
+  background: linear-gradient(120deg, #2093ff, #9620ff, #2093ff, #9620ff);
+  border-radius: 5px;
+  background-size: 200%;
+  margin-bottom: 32px;
+  border: unset;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submitButton:hover {
+  background-position: right;
+}
+.loginReset {
+  font-size: 12px;
+  color: #303030;
+}
