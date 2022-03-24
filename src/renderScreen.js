@@ -1,19 +1,7 @@
 import formScreen from "./app.js";
 
-const URL = "https://reqres.in/api/"
 
-// async function listUsers(page = 1) {
-//     const query = URL + 'users?page=' + page
-//     const response = await fetch(query, 
-//         {
-//             method: 'GET', 
-//             headers: {
-//                 'Content-Type': 'application/json' 
-//             },
-//         })
-//     const json = await response.json()
-//     return json.data
-// }
+const URL = "https://reqres.in/api/"
 
 async function login(email, password) {
     const url = URL + 'login'
@@ -32,22 +20,7 @@ async function login(email, password) {
     return json;
 }
 
-// async function register(email, password) {
-//     const url = URL + 'register'
-//     const request = {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json' 
-//         }, 
-//         body: JSON.stringify({
-//             email: email,
-//             password: password
-//         })
-//     }
-//     const response = await fetch(url, request)
-//     const json = response.json()
-//     return json
-// }
+
 
 const router = () => {
     const screen = document.getElementById("mainContainer");
@@ -60,14 +33,16 @@ const router = () => {
     submitButton.addEventListener('click', async () => {
         let loginResponse = await login(emailField.value, passwordField.value);
         const spanElement = document.getElementById('loginResponse');
-        if (loginResponse.error == "Missing email or username") {
+        if (loginResponse?.error) {
             spanElement.innerHTML = 'Incorret email or password';
-            spanElement.style.color = '#e7473c';
-            spanElement.style.animation = '0.1s linear 3 alternate slidein';  
+            spanElement.classList.remove('success');
+            spanElement.classList.add('error');      
         }
-        if (loginResponse.token == 'QpwL5tke4Pnpja7X4') {
-            spanElement.style.color = '#303030';
+        if (loginResponse?.token) {  
+            let tokenValue = loginResponse.token;
             spanElement.innerHTML = 'Login succesful';
+            spanElement.classList.remove('error');
+            spanElement.classList.add('success');
         }
     })
 };

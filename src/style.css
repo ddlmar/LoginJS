@@ -95,3 +95,11 @@ a {
     margin-left: 5%;
   }
 }
+
+.error {
+  color: #e7473c;
+  animation: 0.1s linear 3 alternate slidein;
+}
+.success {
+  color: #303030;
+}
